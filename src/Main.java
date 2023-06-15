@@ -1,5 +1,3 @@
-package src;
-
 import java.util.Scanner;
 
 public class Main {
@@ -29,15 +27,11 @@ public class Main {
         if (Util.CheckNumberOfOperands(data))
             throw new Exception("Должно быть 2 операнда");
 
-
-        if (Util.CheckNumbers(data))
-            throw new Exception("Числа должны быть больше 1 и меньше 10");
-
         int result = 0;
 
         //Определяем, находятся ли числа в одном формате (оба римские или оба арабские)
         if (converter.isRoman(data[0]) == converter.isRoman(data[1])) {
-            int a,b;
+            int a, b;
 
             //Определяем, римские ли это числа
             boolean isRoman = converter.isRoman(data[0]);
@@ -46,12 +40,20 @@ public class Main {
                 //X+V
                 //x-10-
                 //v - 5
+
                 a = converter.romanToInt(data[0]);
                 b = converter.romanToInt(data[1]);
+
+                if (Util.CheckNumbers(a, b))
+                    throw new Exception("Числа должны быть больше 1 и меньше 10");
             } else {
                 //если арабские, конвертируем их из строки в число
                 a = Integer.parseInt(data[0]);
                 b = Integer.parseInt(data[1]);
+
+                if (Util.CheckNumbers(a, b))
+                    throw new Exception("Числа должны быть больше 1 и меньше 10");
+
             }
 
             //выполняем с числами арифметическое действие

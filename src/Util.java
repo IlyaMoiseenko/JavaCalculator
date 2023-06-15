@@ -1,5 +1,3 @@
-package src;
-
 public class Util {
     public static String[] CreateActions() {
         return new String[] {"+", "-", "/", "*"};
@@ -26,7 +24,7 @@ public class Util {
         return data.length != 2;
     }
 
-    public static boolean CheckNumbers(String[] data) {
-        return Integer.parseInt(data[0]) < 1 || Integer.parseInt(data[1]) > 10;
+    public static boolean CheckNumbers(int a, int b) {
+        return a < 1 || b > 10;
     }
 }
